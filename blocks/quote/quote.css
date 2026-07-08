@@ -1,0 +1,208 @@
+.quote {
+  --quote-surface: light-dark(#eef1f6, #12213a);
+  --quote-tile: light-dark(#f5f7fb, #16273f);
+  --quote-shadow-out: light-dark(6px 6px 14px rgb(174 184 204 / 55%), 6px 6px 14px rgb(0 0 0 / 45%));
+  --quote-shadow-in: light-dark(inset 4px 4px 10px rgb(174 184 204 / 55%), inset 4px 4px 10px rgb(0 0 0 / 45%));
+  --quote-radius: 20px;
+
+  max-width: 640px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+/* Product tabs */
+.quote .quote-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.quote .quote-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: light-dark(var(--color-rust), var(--color-gold));
+  font: inherit;
+  font-weight: 500;
+  font-size: var(--body-font-size-s);
+  cursor: pointer;
+}
+
+.quote .quote-tab-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: var(--quote-tile);
+  box-shadow: var(--quote-shadow-out);
+  transition: transform 0.25s var(--ease-out-smooth), box-shadow 0.25s, background 0.25s, color 0.25s;
+}
+
+.quote .quote-tab-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.quote .quote-tab:hover .quote-tab-icon {
+  transform: translateY(-2px);
+}
+
+.quote .quote-tab.is-active {
+  color: light-dark(var(--color-brand-blue), #fff);
+}
+
+.quote .quote-tab.is-active .quote-tab-icon {
+  background: var(--gradient-brand);
+  color: #fff;
+  box-shadow: 0 10px 22px light-dark(rgb(13 53 148 / 30%), rgb(53 211 225 / 25%));
+}
+
+.quote .quote-tab:focus-visible .quote-tab-icon {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 3px;
+}
+
+/* Quote panel */
+.quote .quote-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-l);
+  padding: var(--space-2xl) var(--space-xl);
+  border-radius: var(--quote-radius);
+  background: var(--quote-surface);
+  box-shadow: var(--quote-shadow-out);
+}
+
+.quote .quote-heading {
+  margin: 0;
+  text-align: center;
+  color: light-dark(var(--color-brand-blue), #fff);
+  font-size: var(--heading-font-size-l);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.quote .quote-field {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.quote .quote-input-label {
+  color: light-dark(var(--color-gray-600), var(--color-muted));
+  font-size: var(--body-font-size-s);
+}
+
+.quote .quote-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--quote-tile);
+  box-shadow: var(--quote-shadow-in);
+  color: var(--text-color);
+  font: inherit;
+  font-size: var(--body-font-size-l);
+  letter-spacing: 0.04em;
+}
+
+.quote .quote-input::placeholder {
+  color: light-dark(var(--color-gray-400), var(--color-muted));
+  letter-spacing: 0.04em;
+}
+
+.quote .quote-input:focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 2px;
+}
+
+.quote .quote-input.is-empty {
+  outline: 2px solid var(--color-red-400);
+  outline-offset: 2px;
+}
+
+.quote .quote-cta {
+  width: 100%;
+  max-width: 460px;
+  justify-content: center;
+}
+
+/* Action rows (Renew / Insure new car) */
+.quote .quote-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.quote .quote-action {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: 18px 20px;
+  border-radius: var(--quote-radius);
+  background: var(--quote-surface);
+  box-shadow: var(--quote-shadow-out);
+  color: light-dark(var(--color-brand-blue), #fff);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease-out-smooth), box-shadow 0.25s;
+}
+
+.quote .quote-action:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.quote .quote-action-icon {
+  display: grid;
+  place-items: center;
+  color: light-dark(var(--color-brand-blue), var(--color-gold));
+}
+
+.quote .quote-action-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.quote .quote-action-text {
+  flex: 1;
+}
+
+.quote .quote-action-arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--quote-tile);
+  box-shadow: var(--quote-shadow-out);
+  color: light-dark(var(--color-brand-blue), var(--color-gold));
+}
+
+.quote .quote-action-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (width >= 600px) {
+  .quote .quote-heading {
+    font-size: var(--heading-font-size-xl);
+  }
+
+  .quote .quote-tab-icon {
+    width: 76px;
+    height: 76px;
+  }
+}
