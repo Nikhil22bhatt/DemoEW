@@ -254,3 +254,72 @@
     max-height: 300px;
   }
 }
+
+/* ==========================================================================
+   Testimonials variant — round portrait + quote card (section style: testimonials)
+   ========================================================================== */
+/* stylelint-disable no-descending-specificity -- intentional section-scoped overrides */
+main .section.testimonials .cards > ul {
+  max-width: var(--grid-container-width);
+}
+
+@media (width >= 900px) {
+  main .section.testimonials .cards > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+main .section.testimonials .cards > ul > li {
+  border-radius: 16px;
+  padding-top: var(--space-l);
+}
+
+main .section.testimonials .cards .cards-card-image {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto var(--space-s);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 14px light-dark(rgb(13 53 148 / 20%), rgb(0 0 0 / 40%));
+}
+
+main .section.testimonials .cards .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main .section.testimonials .cards .cards-card-body {
+  text-align: center;
+}
+
+/* First body paragraph = name, second = role, third = quote */
+main .section.testimonials .cards .cards-card-body p:nth-child(2) {
+  color: light-dark(var(--color-brand-link), var(--color-gold));
+  font-size: var(--body-font-size-s);
+  margin-top: 0;
+}
+
+main .section.testimonials .cards .cards-card-body p:last-child {
+  font-style: italic;
+  color: light-dark(var(--color-gray-700), var(--color-parchment));
+}
+
+/* ==========================================================================
+   Stats variant — big number tiles (section style: highlight center already used)
+   ========================================================================== */
+main .section.highlight .cards > ul > li {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  text-align: center;
+}
+
+main .section.highlight .cards .cards-card-body p:first-child strong {
+  display: block;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  color: light-dark(var(--color-brand-blue), var(--color-gold));
+  line-height: 1.1;
+}
+/* stylelint-enable no-descending-specificity */
